@@ -1,0 +1,9 @@
+name: Mega Walls
+versions: 1.0.0-SNAPSHOT-ALPHA
+main: be.woutdev.megawalls.plugin.MegaWalls
+description: A MegaWalls gamemode plugin for Bukkit
+author: Wout Ceulemans
+website: www.woutdev.be
+commands:
+  mw:
+    description: Main MegaWalls command

@@ -1,0 +1,22 @@
+# Method options: none (no persistance), sqlite (file storage), mysql (mysql storage)
+data:
+  method: none
+  mysql:
+    host: localhost
+    port: 3306
+    user: root
+    password: 'ilovecookies'
+    database: mw
+
+settings:
+  team-selection: true
+  maps:
+    default:
+      min-per-team: 6
+      max-per-team: 24
+      lobby-countown: 60
+      autostart: true
+      wither-health: 1000
+      prepare-countdown: 600
+      late-countdown: 600
+      draw-countdown: 600
