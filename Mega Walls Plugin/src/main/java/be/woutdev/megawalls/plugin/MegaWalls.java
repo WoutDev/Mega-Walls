@@ -51,6 +51,7 @@ public class MegaWalls extends JavaPlugin
         getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerDropListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerTeleportListener(), this);
+        getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(), this);
 
         if (MWAPI.getOfflineUserHandler() instanceof SQLOfflineUserHandler)
         {
