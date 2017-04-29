@@ -12,6 +12,8 @@ public interface Config
 
     boolean isTeamSelectionEnabled();
 
+    boolean stopEntitySpawn();
+
     int getMinTeamSize(Map map);
 
     int getMaxTeamSize(Map map);

@@ -99,6 +99,12 @@ public class MainConfig implements Config
     }
 
     @Override
+    public boolean stopEntitySpawn()
+    {
+        return getFileConfiguration().getBoolean("settings.stop-entity-spawn");
+    }
+
+    @Override
     public int getMinTeamSize(Map map)
     {
         return getFileConfiguration().getInt("settings.maps." + map.getName() + ".min-per-team",
