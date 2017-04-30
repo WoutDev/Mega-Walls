@@ -4,6 +4,8 @@ import be.woutdev.megawalls.api.config.Config;
 import be.woutdev.megawalls.api.framework.Framework;
 import be.woutdev.megawalls.api.handler.*;
 import be.woutdev.megawalls.api.helper.PermissionHelper;
+import be.woutdev.megawalls.api.kit.KitBuilder;
+import be.woutdev.megawalls.api.kit.KitItemBuilder;
 import org.bukkit.plugin.Plugin;
 
 /**
@@ -72,6 +74,10 @@ public final class MWAPI
     {
         return framework;
     }
+
+    public static KitBuilder getKitBuilder(String name) { return framework.getKitBuilder(name); }
+
+    public static KitItemBuilder getKitItemBuilder() { return framework.getKitItemBuilder(); }
 
     public static void setFramework(Framework framework)
     {

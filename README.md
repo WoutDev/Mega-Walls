@@ -7,10 +7,11 @@ some coding conventions I do now use. The goal of this project is to get it work
 
 ## TODO (as of now)
 ### Bugs
-- Fix NPE at ScoreboardHelper:64
-- ~~Fix that team members can hit each other or hit their wither~~
+- ~~Fix NPE at ScoreboardHelper:64~~
+- Fix that team members can hit each other or hit their wither
 - Fix default death messages, create proper respawn
 - ~~Fix mob spawning (except Wither) in map~~
+- Scoreboa
 
 ### Features
 - Create ending

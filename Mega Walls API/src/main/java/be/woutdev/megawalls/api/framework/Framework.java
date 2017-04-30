@@ -3,6 +3,8 @@ package be.woutdev.megawalls.api.framework;
 import be.woutdev.megawalls.api.config.Config;
 import be.woutdev.megawalls.api.handler.*;
 import be.woutdev.megawalls.api.helper.PermissionHelper;
+import be.woutdev.megawalls.api.kit.KitBuilder;
+import be.woutdev.megawalls.api.kit.KitItemBuilder;
 import org.bukkit.plugin.Plugin;
 
 /**
@@ -31,4 +33,8 @@ public interface Framework
     Plugin getPlugin();
 
     PermissionHelper getPermissionHelper();
+
+    KitBuilder getKitBuilder(String name);
+
+    KitItemBuilder getKitItemBuilder();
 }

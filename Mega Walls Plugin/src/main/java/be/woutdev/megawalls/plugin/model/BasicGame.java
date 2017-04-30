@@ -8,7 +8,6 @@ import be.woutdev.megawalls.api.model.Map;
 import be.woutdev.megawalls.api.model.Team;
 import be.woutdev.megawalls.api.model.User;
 import be.woutdev.megawalls.plugin.handler.game.BasicGameHandler;
-import be.woutdev.megawalls.plugin.helper.EntityHider;
 import be.woutdev.megawalls.plugin.helper.ItemHelper;
 import be.woutdev.megawalls.plugin.helper.ScoreboardHelper;
 import be.woutdev.megawalls.plugin.thread.GameStartingRunnable;
@@ -55,8 +54,6 @@ public class BasicGame implements Game
     @Column
     private TeamColor winner;
     @Transient
-    private EntityHider entityHider;
-    @Transient
     private GameStartingRunnable gameStartingRunnable;
     @Version
     private Long lastUpdate;
@@ -73,7 +70,6 @@ public class BasicGame implements Game
             teams.add(new BasicTeam(this, color));
         }
 
-        this.entityHider = new EntityHider(MWAPI.getPlugin(), EntityHider.Policy.BLACKLIST);
         this.gameStartingRunnable = new GameStartingRunnable(this);
 
         this.startedOn = null;
@@ -342,11 +338,6 @@ public class BasicGame implements Game
     public void setStartedOn(Date startedOn)
     {
         this.startedOn = startedOn;
-    }
-
-    public EntityHider getEntityHider()
-    {
-        return entityHider;
     }
 
     public GameStartingRunnable getGameStartingRunnable()

@@ -4,6 +4,8 @@ import be.woutdev.megawalls.api.config.Config;
 import be.woutdev.megawalls.api.framework.Framework;
 import be.woutdev.megawalls.api.handler.*;
 import be.woutdev.megawalls.api.helper.PermissionHelper;
+import be.woutdev.megawalls.api.kit.KitBuilder;
+import be.woutdev.megawalls.api.kit.KitItemBuilder;
 import be.woutdev.megawalls.plugin.MegaWalls;
 import be.woutdev.megawalls.plugin.handler.BasicMapHandler;
 import be.woutdev.megawalls.plugin.handler.BasicTeleportHandler;
@@ -17,6 +19,8 @@ import be.woutdev.megawalls.plugin.handler.user.BasicOfflineUserHandler;
 import be.woutdev.megawalls.plugin.handler.user.BasicUserHandler;
 import be.woutdev.megawalls.plugin.handler.user.SQLOfflineUserHandler;
 import be.woutdev.megawalls.plugin.helper.BasicPermissionHelper;
+import be.woutdev.megawalls.plugin.kit.BasicKitBuilder;
+import be.woutdev.megawalls.plugin.kit.BasicKitItemBuilder;
 import com.avaje.ebean.config.DataSourceConfig;
 import org.bukkit.plugin.Plugin;
 
@@ -128,5 +132,17 @@ public class MegaWallsFramework implements Framework
     public PermissionHelper getPermissionHelper()
     {
         return permissionHelper;
+    }
+
+    @Override
+    public KitBuilder getKitBuilder(String name)
+    {
+        return new BasicKitBuilder(name);
+    }
+
+    @Override
+    public KitItemBuilder getKitItemBuilder()
+    {
+        return new BasicKitItemBuilder();
     }
 }
