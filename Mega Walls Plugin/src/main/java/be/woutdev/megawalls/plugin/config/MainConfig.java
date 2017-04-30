@@ -105,6 +105,12 @@ public class MainConfig implements Config
     }
 
     @Override
+    public boolean isDefaultKitsEnabled()
+    {
+        return getFileConfiguration().getBoolean("settings.enable-default-kits");
+    }
+
+    @Override
     public int getMinTeamSize(Map map)
     {
         return getFileConfiguration().getInt("settings.maps." + map.getName() + ".min-per-team",

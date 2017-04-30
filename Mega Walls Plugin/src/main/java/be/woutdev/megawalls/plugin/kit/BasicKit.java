@@ -62,6 +62,12 @@ public class BasicKit implements Kit
     }
 
     @Override
+    public Map<Integer, KitItem> getItems()
+    {
+        return items;
+    }
+
+    @Override
     public String getName()
     {
         return name;

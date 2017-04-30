@@ -3,6 +3,7 @@ package be.woutdev.megawalls.plugin.model;
 import be.woutdev.megawalls.api.MWAPI;
 import be.woutdev.megawalls.api.enums.GameState;
 import be.woutdev.megawalls.api.enums.TeamColor;
+import be.woutdev.megawalls.api.kit.Kit;
 import be.woutdev.megawalls.api.model.Game;
 import be.woutdev.megawalls.api.model.Map;
 import be.woutdev.megawalls.api.model.Team;
@@ -14,6 +15,8 @@ import be.woutdev.megawalls.plugin.thread.GameStartingRunnable;
 import be.woutdev.megawalls.plugin.wither.NMSWither;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.PlayerInventory;
 
 import javax.persistence.*;
 import java.lang.reflect.InvocationTargetException;
@@ -148,6 +151,7 @@ public class BasicGame implements Game
             }
 
             MWAPI.getTeleportHandler().teleport(user, map.getLobbyLocation());
+
             user.getPlayer().setHealth(20);
             user.getPlayer().setFoodLevel(20);
             user.getPlayer().getInventory().clear();
@@ -162,6 +166,7 @@ public class BasicGame implements Game
             user.getPlayer().getInventory().setItem(8, ItemHelper.getLeaveItem());
 
             usersInLobby.add(user);
+
             ((BasicUser) user).setGame(this);
 
             if (usersInLobby.size() >=
@@ -289,6 +294,20 @@ public class BasicGame implements Game
             MWAPI.getTeleportHandler().teleport(user, map.getSpawnLocation(user.getTeam().getTeamColor()));
 
             // TODO: Give kit
+            if (user.getKit() == null)
+            {
+                ((BasicUser) user).setKit(MWAPI.getKitHandler().getKitByName("Fighter")); // TODO: when moving kits into config we should really change this from hardcoded to something more flexible
+            }
+
+            Kit kit = user.getKit();
+
+            PlayerInventory inv = user.getPlayer().getInventory();
+            inv.setHelmet(kit.getHelmet().getStack());
+            inv.setChestplate(kit.getChestPlate().getStack());
+            inv.setLeggings(kit.getPants().getStack());
+            inv.setBoots(kit.getBoots().getStack());
+
+            kit.getItems().forEach((index, item) -> inv.setItem(index, item.getStack()));
 
             user.getPlayer()
                 .sendMessage(ChatColor.YELLOW + "You are playing in team " +

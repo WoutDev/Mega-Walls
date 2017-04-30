@@ -1,5 +1,6 @@
 package be.woutdev.megawalls.api.model;
 
+import be.woutdev.megawalls.api.kit.Kit;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -18,6 +19,8 @@ public interface User
     Game getGame();
 
     Team getTeam();
+
+    Kit getKit();
 
     Player getPlayer();
 }

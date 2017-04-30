@@ -1,5 +1,6 @@
 package be.woutdev.megawalls.plugin.model;
 
+import be.woutdev.megawalls.api.kit.Kit;
 import be.woutdev.megawalls.api.model.Game;
 import be.woutdev.megawalls.api.model.Team;
 import be.woutdev.megawalls.api.model.User;
@@ -30,6 +31,8 @@ public class BasicUser implements User
     @ManyToOne
     private Team team;
     @Transient
+    private Kit kit;
+    @Transient
     private UserScoreboard scoreboard;
     @Version
     private Long lastUpdate;
@@ -41,6 +44,7 @@ public class BasicUser implements User
         this.spectator = false;
         this.game = null;
         this.team = null;
+        this.kit = null;
     }
 
     @Override
@@ -74,6 +78,12 @@ public class BasicUser implements User
     }
 
     @Override
+    public Kit getKit()
+    {
+        return kit;
+    }
+
+    @Override
     public Player getPlayer()
     {
         return Bukkit.getPlayer(uniqueId);
@@ -87,6 +97,11 @@ public class BasicUser implements User
     public void setGame(BasicGame game)
     {
         this.game = game;
+    }
+
+    public void setKit(Kit kit)
+    {
+        this.kit = kit;
     }
 
     public Long getLastUpdate()

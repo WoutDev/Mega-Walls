@@ -2,6 +2,7 @@ package be.woutdev.megawalls.api.kit;
 
 import org.bukkit.potion.PotionEffect;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,6 +19,8 @@ public interface Kit
     KitItem getBoots();
 
     KitItem getItemAt(int index);
+
+    Map<Integer, KitItem> getItems();
 
     String getName();
 

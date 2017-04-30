@@ -14,6 +14,8 @@ public interface Config
 
     boolean stopEntitySpawn();
 
+    boolean isDefaultKitsEnabled();
+
     int getMinTeamSize(Map map);
 
     int getMaxTeamSize(Map map);
